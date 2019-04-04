@@ -9,6 +9,19 @@
     $a = 1;
     $b = 2;
     [$a, $b] = [$b, $a];
+
+
+function renderMenu(){
+$menu = ['home','archive','contact'];
+$nav = "<ul id='menu'>";
+foreach($menu as $value){
+    $nav.="<li><a href='#'>$value<a/></li>";
+}
+$nav.="</ul>";
+return $nav;
+}
+
+
     
 ?>
 
@@ -31,14 +44,17 @@
                         
             <?php
                 echo $title_h1;
+                echo renderMenu();
             ?>
            
+<!--
             <ul id="menu">
                 <li><a href="#">home</a></li>
                 <li><a href="#">archive</a></li>
                 <li><a href="#">contact</a></li>
             </ul>
              
+-->
             <div class="post">
                 <div class="details">
                     <h2><a href="#">Nunc commodo euismod massa quis vestibulum</a></h2>
