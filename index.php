@@ -9,6 +9,39 @@
     $a = 1;
     $b = 2;
     [$a, $b] = [$b, $a];
+
+/*Рендеринг меню*/
+function renderMenu(){
+$menu = ['home','archive','contact'];
+$nav = "<ul id='menu'>";
+foreach($menu as $value){
+    $nav.="<li><a href='#'>$value<a/></li>";
+}
+$nav.="</ul>";
+return $nav;
+}
+/*Рендеринг меню с подменю*/
+function renderMenuFunction(){
+    $menu = [
+         'home' =>[],
+         'archive' =>['последние записи'],
+         'contact' =>['О нас','Адрес','Геолокация']
+        ];
+
+echo "<ul class=\"submenu\">";
+foreach($menu as $key=>$value){
+          if(is_array($value)){
+              echo "<li><a href = '#'>$key</a><ul iclass=\"submenu\">";
+                    foreach($value as $nameSubMenu){
+                    echo "<li><a href = '#'>$nameSubMenu</a></li>";
+                    }
+               echo "</ul>";
+       
+          }else{
+              echo "<li>$value</li>";
+          }
+}
+}
     
 ?>
 
@@ -31,14 +64,18 @@
                         
             <?php
                 echo $title_h1;
+                echo renderMenu();
+                   
             ?>
            
+<!--
             <ul id="menu">
                 <li><a href="#">home</a></li>
                 <li><a href="#">archive</a></li>
                 <li><a href="#">contact</a></li>
             </ul>
              
+-->
             <div class="post">
                 <div class="details">
                     <h2><a href="#">Nunc commodo euismod massa quis vestibulum</a></h2>
@@ -76,6 +113,9 @@
 
             <div id="footer">
                 <p>Copyright &copy; <em>minimalistica</em> &middot; Design: Luka Cvrk, <a href="http://www.solucija.com/" title="Free CSS Templates">Solucija</a></p>
+                
+               
+                
             </div>
         </div>
     </body>
