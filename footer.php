@@ -1,7 +1,15 @@
 <div class="content">
 	<?php
 		echo renderImg();
+		echo addInfoIntoDB();
 	?>
+</div>
+
+<div class="form">
+	<form action="" method="POST" enctype="multipart/form-data">
+		<input type="file" name="image">
+		<input type="submit" name="submit">
+	</form>
 </div>
 <footer>
 			
