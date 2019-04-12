@@ -33,6 +33,16 @@
 				copy("img/small/".$fileName, "img/big/".$fileName);// если формат подходит то загружаем
 				if(mysqli_query($link, $insertImg)){
 					echo "Файл загружен";
+					/*$pathUploadFile = "SELECT * FROM pictures";
+					$var = mysqli_query($link, $pathUploadFile);
+					while ($row=mysqli_fetch_array($var)) {
+						
+						$image_name=$row["imagename"];
+						$image_path=$row["imagepath"];*/
+						
+						
+					}
+
 					mysqli_close($link);
 				}else{
 					echo "Упс, что-то пошло не так";
