@@ -17,4 +17,20 @@ img{
 
 .form{
 	margin-top: 100px;
+	border: 1px solid blue;
+	width: 350px;
+	height: 50px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 10px;
+
+}
+input[type="submit"]{
+	border-radius: 7px;
+	height: 30px;
+	background-color: lightblue;
+}
+input[type="submit"]:hover{
+	cursor: pointer;
 }
