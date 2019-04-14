@@ -1,6 +1,6 @@
 <div class="content">
 	<?php
-		echo renderImg();
+		//echo renderImg();
 		echo addInfoIntoDB();
 	?>
 </div>

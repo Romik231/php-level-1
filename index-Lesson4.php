@@ -1,31 +1,31 @@
 <?php
 
-	include ("header.php");
-
+	include "header.php";
+	include "conf/config.php";
 	/*Функция загрузки изображений из папки*/
-	function renderImg(){
+	/*function renderImg(){
 	$imgSmall = scandir('img/small/');
 		foreach($imgSmall as $nameImg){
 			if($nameImg == "." ||$nameImg == ".."){
 				continue;
 			}else{
-				echo "<a href='img/big/$nameImg' class='modal'><img src='img/small/$nameImg'/></a>";
+				echo "<a href='img/big/$nameImg' class='modal'><img src='img/big/$nameImg'/></a>";
 			}
 		}
-	} 
+	} */
 	
 	/*Функция добавления информации о файле в базу данных*/
 	function addInfoIntoDB(){
-		include ("conf/config.php");
+		
 		if(isset($_FILES['image'])){
-			$link = mysqli_connect($host, $user, $password, $nameDB);
+			include "conf/config.php";
 			$fileName = $_FILES['image']['name'];
 			$fileSize = $_FILES['image']['size'];
 			$fileType = $_FILES['image']['type'];
 			$fileTmp = $_FILES['image']['tmp_name'];
-			$extensions = ['jpg', 'jpeg', 'png', 'JPG']; //Добавляем в массив все расширения которые хотим загрузить
+			$extensions = ['jpg', 'jpeg', 'png', 'JPG', 'JPEG', 'PNG']; //Добавляем в массив все расширения которые хотим загрузить
 			$fileExt = array_pop(explode('.', $fileName));//создаем массив из имени загружаемого файла и выбираем последний элемент, то есть формат 
-			$insertImg = "INSERT INTO pictures (name, size, path) VALUES ('$fileName', '$fileSize', 'img/small/$fileName')"; //Делаем запрос на добавление данных в базу
+			$insertImg = "INSERT INTO pictures (name, size, path) VALUES ('$fileName', '$fileSize', 'img/small/')"; //Делаем запрос на добавление данных в базу
 			if(!in_array($fileExt, $extensions)){//Проверяем, присутствует ли в нашем массиве необходимый формат, и если нет, то сразу выходим
 				echo "Данный формат файла не поддерживается";
 			}else{
@@ -41,7 +41,14 @@
 			}
 		}
 	}
-
+	
+	$sql = "Select * from pictures";
+	$res = mysqli_query($link, $sql);
+	while ($data = mysqli_fetch_assoc($res)) {
+		echo "<a href = 'img/big/".$data['name']."' class='modal'><img src = ".$data['path'].$data['name']."></a>";
+		
+	}
+	
 	include ("footer.php");
 ?>
        

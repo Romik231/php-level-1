@@ -31,6 +31,10 @@ input[type="submit"]{
 	height: 30px;
 	background-color: lightblue;
 }
+<<<<<<< Updated upstream
 input[type="submit"]:hover{
 	cursor: pointer;
 }
+=======
+
+>>>>>>> Stashed changes
