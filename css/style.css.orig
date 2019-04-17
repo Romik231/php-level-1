@@ -1,0 +1,40 @@
+h1{
+	text-align: center;
+}
+
+.content{
+	display: flex;
+	width: 100%;
+	justify-content: space-around; 
+	flex-wrap: wrap;
+}
+
+img{
+	width:	200px;
+	height: 300px;
+	border-radius: 10px;
+}
+
+.form{
+	margin-top: 100px;
+	border: 1px solid blue;
+	width: 350px;
+	height: 50px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 10px;
+
+}
+input[type="submit"]{
+	border-radius: 7px;
+	height: 30px;
+	background-color: lightblue;
+}
+<<<<<<< Updated upstream
+input[type="submit"]:hover{
+	cursor: pointer;
+}
+=======
+
+>>>>>>> Stashed changes
